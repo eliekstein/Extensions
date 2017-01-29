@@ -1,6 +1,8 @@
 ﻿using System;
 using Serilog.Core;
 using Serilog.Events;
+using Serilog;
+using Serilog.Configuration;
 
 namespace Extensions.Serilog
 {
@@ -23,10 +25,20 @@ namespace Extensions.Serilog
         }
         public void Emit(LogEvent logEvent)
         {
-            if (EventActionPredicate.Invoke(logEvent.Level))
+            if (EventActionPredicate == null || EventActionPredicate.Invoke(logEvent.Level))
             {
                 EventAction(logEvent);
             }
+        }
+    }
+
+    public static class ActionSinkExtensions
+    {
+        public static LoggerConfiguration ActionSink(
+                  this LoggerSinkConfiguration loggerConfiguration,
+                  Action<LogEvent> EventAction)
+        {
+            return loggerConfiguration.Sink(new ActionSink(EventAction));
         }
     }
 }
