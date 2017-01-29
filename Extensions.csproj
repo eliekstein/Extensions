@@ -87,7 +87,8 @@
     <Compile Include="LinqExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RawPrinterHelper.cs" />
-    <Compile Include="SeqExtensions.cs" />
+    <Compile Include="Serilog\SeqExtensions.cs" />
+    <Compile Include="Serilog\ActionSink.cs" />
     <Compile Include="Settings\ApplicationSettings.cs" />
     <Compile Include="Settings\UserApplicationSettings.cs" />
   </ItemGroup>
