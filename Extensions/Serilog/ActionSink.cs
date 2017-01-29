@@ -9,7 +9,7 @@ namespace Extensions.Serilog
     public class ActionSink : ILogEventSink
     {
         private Action<LogEvent> EventAction;
-        private Predicate<LogEventLevel> EventActionPredicate;
+        private Predicate<LogEvent> EventActionPredicate;
 
         private ActionSink()
         {
@@ -19,13 +19,13 @@ namespace Extensions.Serilog
         {
             this.EventAction = EventAction;
         }
-        public ActionSink(Action<LogEvent> EventAction, Predicate<LogEventLevel> EventActionPredicate) : this(EventAction)
+        public ActionSink(Action<LogEvent> EventAction, Predicate<LogEvent> EventActionPredicate) : this(EventAction)
         {
             this.EventActionPredicate = EventActionPredicate;
         }
         public void Emit(LogEvent logEvent)
         {
-            if (EventActionPredicate == null || EventActionPredicate.Invoke(logEvent.Level))
+            if (EventActionPredicate == null || EventActionPredicate.Invoke(logEvent))
             {
                 EventAction(logEvent);
             }
@@ -36,9 +36,14 @@ namespace Extensions.Serilog
     {
         public static LoggerConfiguration ActionSink(
                   this LoggerSinkConfiguration loggerConfiguration,
-                  Action<LogEvent> EventAction)
+                  Action<LogEvent> EventAction,
+                  Predicate<LogEvent> EventActionPredicate = null)
         {
-            return loggerConfiguration.Sink(new ActionSink(EventAction));
+            if (EventActionPredicate == null)
+                return loggerConfiguration.Sink(new ActionSink(EventAction));
+            else
+                return loggerConfiguration.Sink(new ActionSink(EventAction, EventActionPredicate));
         }
+
     }
 }
