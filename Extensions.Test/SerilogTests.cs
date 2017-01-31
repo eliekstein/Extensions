@@ -45,5 +45,31 @@ namespace Extensions.Test
 
             Assert.Equal(Level, LogEventLevel.Warning);
         }
+        [Fact]
+        public void ShouldCheckPredicate()
+        {
+            LogEventLevel Level = 0;
+
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.ActionSink(l =>
+                {
+                    output.WriteLine(l.MessageTemplate.Text);
+                    Level = l.Level;
+                },l => l.Level >= LogEventLevel.Warning)
+                .MinimumLevel.Verbose()
+                .CreateLogger();
+
+            //check value still as init
+            Assert.Equal(Level, LogEventLevel.Verbose);
+
+            //log something
+            Log.Verbose("hello verbose");
+            //still default 
+            Assert.Equal(Level, LogEventLevel.Verbose);
+            //log again
+            Log.Warning("hello verbose");
+            //should be warning
+            Assert.Equal(Level, LogEventLevel.Warning);
+        }
     }
 }

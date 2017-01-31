@@ -76,8 +76,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Extensions.csproj">
-      <Project>{70BBE90B-92C2-453F-B68B-81541A27842A}</Project>
+    <ProjectReference Include="..\Extensions\Extensions.csproj">
+      <Project>{70bbe90b-92c2-453f-b68b-81541a27842a}</Project>
       <Name>Extensions</Name>
     </ProjectReference>
   </ItemGroup>
