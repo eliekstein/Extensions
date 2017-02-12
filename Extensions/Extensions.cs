@@ -1,4 +1,5 @@
 ﻿using Serilog;
+using Serilog.Core;
 using Serilog.Events;
 using System;
 using System.ComponentModel;
@@ -29,8 +30,9 @@ namespace Extensions
 
         public static string FormatWith(this string str, params object[] strs)
         {
-            return formatWith(str, strs);
+            return string.Format(str, strs);
         }
+        [Obsolete]
         public static string formatWith(this string str, params object[] strs)
         {
             return string.Format(str, strs);
@@ -60,7 +62,7 @@ namespace Extensions
         //    return 55;
         //}
 
-        public static Exception LogWithSerilog(this Exception exception,LogEventLevel Level)
+        public static Exception LogWithSerilog(this Exception exception,LogEventLevel Level,params ILogEventEnricher[] enricher)
         {
             Log.Write(Level, exception, exception.GetBottomException().Message);
             return exception;
