@@ -1,10 +1,9 @@
 ﻿using Serilog;
 using Serilog.Events;
 using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
 
 namespace Extensions
 {
@@ -82,5 +81,11 @@ namespace Extensions
         {
             log.Error(exception, exception.GetBottomException().Message);
         }
+
+
+        public static void Fire(this PropertyChangedEventHandler notifier,
+            object sender,
+            [CallerMemberName] String propertyName = "") =>
+            notifier?.Invoke(sender, new PropertyChangedEventArgs(propertyName));
     }
 }
