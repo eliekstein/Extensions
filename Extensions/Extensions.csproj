@@ -97,6 +97,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationSettings\IAppSettings.cs" />
+    <Compile Include="ApplicationSettings\ISettings.cs" />
+    <Compile Include="ApplicationSettings\IUserSettings.cs" />
     <Compile Include="Data\Context.cs" />
     <Compile Include="Data\IntersectBy.cs" />
     <Compile Include="EventTypeEnricher.cs" />
@@ -123,4 +126,3 @@
   </Target>
   -->
 </Project>
-

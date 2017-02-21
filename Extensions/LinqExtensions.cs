@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Data.Entity;
@@ -9,6 +10,7 @@ namespace Extensions
 {
     public static class LinqExtensions
     {
+        [Obsolete("Use the MoreLinq batch function instead")]
         public static IEnumerable<IQueryable<T>> Chunk<T>(this IQueryable<T> source, int chunkSize)
         {
             var index = 0;
