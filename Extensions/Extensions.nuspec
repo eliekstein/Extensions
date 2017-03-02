@@ -6,7 +6,7 @@
         <title>$title$</title>
         <authors>$author$</authors>
         <owners>$author$</owners>
-        <projectUrl>https://github.com/eliekstein/Extensions</projectUrl>
+        <projectUrl>https://github.com/eliekstein/SweetHelpers</projectUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>$description$</description>
         <copyright>Copyright 2017</copyright>
