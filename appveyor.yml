@@ -10,11 +10,11 @@ before_build:
 - cmd: nuget restore
 
 build:
-  project: Extensions.sln
+  project: SweetHelpers.sln
   verbosity: minimal
  
 after_build:
-- cmd: nuget pack Extensions\Extensions.csproj -version "%APPVEYOR_BUILD_VERSION%"
+- cmd: nuget pack SweetHelpers\SweetHelpers.csproj -version "%APPVEYOR_BUILD_VERSION%"
 
 artifacts:
 - path: '*.nupkg'
