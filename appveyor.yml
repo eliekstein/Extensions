@@ -22,8 +22,10 @@ artifacts:
   
 deploy:
 - provider: NuGet
+  server: https://www.myget.org/F/eliekstein/api/v2/package
+
   api_key:
-    secure: 1xyFzZK48G8faNP6LwV4vsxcyjYtxXO8gQ648Cn4yRBpgmbk7UsoT5FDKY6rVe6r
+    secure: rcuLPZxD9M8/DE6fCI4FcYmvExEXPbvdnnhTrQNeTmF6FyfofibZg8MDU+8mRS9R
   artifact: nuget-package
   on:
     branch: master
