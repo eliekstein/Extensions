@@ -25,18 +25,7 @@ namespace Serilog.Extensions
 
         }
 
-        public static void WriteLog(string level,string message,params string[] propertyValues)
-        {
-            var log = new LoggerConfiguration()
-                .WriteTo.Seq("http://srv3:5341", apiKey: "zw6Xu5aY4fFXuQbFBnC")
-                .CreateLogger();
-
-            var logLevel = LogEventLevel.Verbose;
-            Enum.TryParse(level, true,out logLevel);
-
-            log.Write(logLevel, message, propertyValues);
-
-        }
+      
     }
 
 
