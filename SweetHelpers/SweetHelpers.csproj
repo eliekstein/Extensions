@@ -7,8 +7,8 @@
     <ProjectGuid>{70BBE90B-92C2-453F-B68B-81541A27842A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Extensions</RootNamespace>
-    <AssemblyName>Extensions</AssemblyName>
+    <RootNamespace>SweetHelpers</RootNamespace>
+    <AssemblyName>SweetHelpers</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -80,16 +80,19 @@
     <Compile Include="ApplicationSettings\IAppSettings.cs" />
     <Compile Include="ApplicationSettings\ISettings.cs" />
     <Compile Include="ApplicationSettings\IUserSettings.cs" />
-    <Compile Include="Data\Context.cs" />
-    <Compile Include="Data\IntersectBy.cs" />
-    <Compile Include="EventTypeEnricher.cs" />
+    <Compile Include="DataBinding\DataBindingExtensions.cs" />
+    <Compile Include="ApplicationSettings\Context.cs" />
+    <Compile Include="Linq\IntersectBy.cs" />
+    <Compile Include="Serilog\EventTypeEnricher.cs" />
+    <Compile Include="Exception\ExceptionExtensions.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="Helper.cs" />
-    <Compile Include="LinqExtensions.cs" />
+    <Compile Include="Reflection\Helper.cs" />
+    <Compile Include="Linq\LinqExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RawPrinterHelper.cs" />
     <Compile Include="Serilog\SeqExtensions.cs" />
     <Compile Include="Serilog\ActionSink.cs" />
+    <Compile Include="Serilog\SerilogExtensions.cs" />
     <Compile Include="Settings\ApplicationSettings.cs" />
     <Compile Include="Settings\UserApplicationSettings.cs" />
   </ItemGroup>

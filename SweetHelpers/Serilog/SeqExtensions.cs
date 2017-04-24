@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace Serilog.Extensions
 {
+    [Obsolete("Update your SweetHelpers namespace from Serilog.Extensions to SweetHelpers.Serilog.Seq")]
+
     public static class SeqExtensions
     {
         public static void Error(this ILogger logger, string messageTemplate,bool showError, params object[] propertyValues)
@@ -30,3 +32,27 @@ namespace Serilog.Extensions
 
 
 }
+
+namespace SweetHelpers.Serilog.Seq
+{
+    public static class SeqExtensions
+    {
+        public static void Error(this ILogger logger, string messageTemplate, bool showError, params object[] propertyValues)
+        {
+            if (showError)
+            {
+                var msg = string.Format(messageTemplate, propertyValues);
+
+                //MessageBox.Show();
+
+            }
+            logger.Error(messageTemplate, propertyValues);
+
+        }
+
+
+    }
+
+
+}
+
