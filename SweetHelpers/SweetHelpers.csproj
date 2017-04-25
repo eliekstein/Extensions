@@ -93,8 +93,8 @@
     <Compile Include="Serilog\SeqExtensions.cs" />
     <Compile Include="Serilog\ActionSink.cs" />
     <Compile Include="Serilog\SerilogExtensions.cs" />
-    <Compile Include="Settings\ApplicationSettings.cs" />
-    <Compile Include="Settings\UserApplicationSettings.cs" />
+    <Compile Include="ApplicationSettings\ApplicationSettings.cs" />
+    <Compile Include="ApplicationSettings\UserApplicationSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
