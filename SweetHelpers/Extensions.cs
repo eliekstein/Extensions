@@ -5,6 +5,7 @@ using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
 
 namespace SweetHelpers.Extensions
 {
@@ -40,6 +41,10 @@ namespace SweetHelpers.Extensions
         public static string Join(this string[] strings, string separator)
         {
             return string.Join(separator, strings);
+        }
+        public static string ToBase64String(this string input)
+        {
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(input));
         }
 
     }

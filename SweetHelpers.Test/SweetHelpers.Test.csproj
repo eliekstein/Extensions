@@ -47,6 +47,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="ExtensionsTest.cs" />
     <Compile Include="SerilogTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
