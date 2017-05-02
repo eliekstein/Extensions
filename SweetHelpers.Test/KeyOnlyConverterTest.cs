@@ -12,6 +12,7 @@ namespace Extensions.Test
 {
     public static class KeyOnlyConverterTest
     {
+        private static string sampleJson = "{\"id\":1,\"name\":\"testing perent\",\"keyTest\":\"5\"}";
         [Fact]
         public static void Should_only_serielize_key()
         {
@@ -24,7 +25,23 @@ namespace Extensions.Test
 
             var final = JsonConvert.SerializeObject(sut);
 
-            Assert.Equal("{\"id\":1,\"name\":\"testing perent\",\"keyTest\":\"5\"}", final);
+            Assert.Equal(sampleJson, final);
+        }
+        [Fact]
+        public static void Should_only_deserielize_key()
+        {
+            var sut = new JsonKeyTestPerent
+            {
+                id = 1,
+                name = "testing perent",
+                keyTest = new JsonKeyTest { id = 5 },
+            };
+          
+
+            var final = JsonConvert.DeserializeObject<JsonKeyTestPerent>(sampleJson);
+
+            Assert.Equal(sut.id, final.id);
+            Assert.Equal(sut.keyTest.id, final.keyTest.id);
         }
 
     }
@@ -33,6 +50,7 @@ namespace Extensions.Test
     {
         //[JsonConverter(typeof(KeyOnlyConverter))]
         [Key]
+        [JsonProperty("nm")]
         public int id { get; set; }
         public string name { get; set; }
 
