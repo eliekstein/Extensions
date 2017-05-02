@@ -82,6 +82,7 @@
     <Compile Include="ApplicationSettings\IUserSettings.cs" />
     <Compile Include="DataBinding\DataBindingExtensions.cs" />
     <Compile Include="ApplicationSettings\Context.cs" />
+    <Compile Include="Json\KeyOnlyConverter.cs" />
     <Compile Include="Linq\IntersectBy.cs" />
     <Compile Include="Serilog\EventTypeEnricher.cs" />
     <Compile Include="Exception\ExceptionExtensions.cs" />

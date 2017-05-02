@@ -4,6 +4,8 @@ using Newtonsoft.Json;
 using Serilog;
 using Extensions.Data;
 using System.Reflection;
+using SweetHelpers.Exceptions;
+using SweetHelpers.Extensions;
 
 namespace Extensions.Settings
 {
