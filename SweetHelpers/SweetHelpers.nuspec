@@ -11,5 +11,17 @@
         <description>$description$</description>
         <copyright>Copyright 2017</copyright>
         <tags>c# .net extensions helpers</tags>
+        <dependencies>
+            <group targetFramework=".NETFramework4.6.1">
+                <dependency id="Newtonsoft.Json" version="10.0.2" exclude="Build,Analyzers" />
+                <dependency id="Serilog" version="2.4.0" exclude="Build,Analyzers" />
+            </group>
+            <group targetFramework=".NETFramework4.5.1">
+                <dependency id="EntityFramework" version="6.1.3" exclude="Build,Analyzers" />
+            </group>
+        </dependencies>
     </metadata>
+    <files>
+        <file src="bin\Debug\SweetHelpers.dll" target="lib\net461\SweetHelpers.dll" />
+    </files>
 </package>
